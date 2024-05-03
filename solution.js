@@ -75,11 +75,7 @@ function executeQueries(lines) {
 	}
 
 	Database.prototype.DELETE = function (key) {
-		if (this.isEmpty(key)) {
-			return false;
-		}
-		this.data[key] = null;
-		return true;
+		return this.dataTransaction(key);
 	}
 
 	Database.prototype.TOP_N_KEYS = function (n) {
